@@ -159,6 +159,8 @@ function launchExtEdit() {
     content += headersEnd;
   }
 
+  content += "<++>" + newline;
+
   if (isEditAsHtml()) {
     // params in http://mxr.mozilla.org/aviarybranch/source/content/base/public/nsIDocumentEncoder.h  (old)
     //    or in  http://mxr.mozilla.org/comm-central/source/mozilla/content/base/public/nsIDocumentEncoder.idl
