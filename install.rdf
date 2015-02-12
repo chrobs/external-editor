@@ -4,12 +4,13 @@
 
 	<r:Description about="urn:mozilla:install-manifest">
 		<id>{ca8dd6ef-b3ce-4175-94fd-0eca45382519}</id>
-		<name>ExtEdit</name>
+		<name>External-Editor</name>
 		<type>2</type>
-		<version>0.0.1</version>
+		<version>0.0.2</version>
 		<!-- description done with the prefs.js and locale/properties files -->
 		<!-- Based on the External Editor extension by Alexandre Feblot. -->
-		<creator>brian m. carlson</creator>
+    <!-- Fork of ExtEdit extension by brian m. carlson -->
+		<creator>tempo_TM</creator>
 		<iconURL>chrome://extedit/content/exteditor.png</iconURL>
 
 		<targetApplication>
