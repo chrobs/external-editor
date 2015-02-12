@@ -11,7 +11,7 @@
 
    Alternatively, the contents of this file may be used under the
    terms of the GNU General Public License Version 2 or later (the
-   "GPL"), in which case the provisions of the GPL are applicable 
+   "GPL"), in which case the provisions of the GPL are applicable
    instead of those above.
 */
 
@@ -135,11 +135,26 @@ function launchExtEdit() {
     var msgCompFields = gMsgCompose.compFields;
     Recipients2CompFields(msgCompFields);
 
-    if (prefEditHeaders[extedit_SUBJECT])   content += extedit_SUBJECT + ":   " + subject + newLine;
-    if (prefEditHeaders[extedit_TO])        content += extedit_TO + ":        " + msgCompFields.to + newLine;
+    if (prefEditHeaders[extedit_SUBJECT]){
+      content += extedit_SUBJECT + ": ";
+      (subject == "") ? content += "<++>" : content += "  " + subject ;
+      content += newline;
+    }
+
+    if (prefEditHeaders[extedit_TO]) {
+      content += extedit_TO + ": ";
+      (msgCompFields.to == "") ? content += "<++>" : content += "  " + msgCompFields.to;
+      content += newline;
+    }
+
+    if (prefEditHeaders[extedit_REPLY_TO]) {
+      content += extedit_REPLY_TO + ": ";
+      if(msgCompFields.replyTo == "") ? content += "<++>" : content += " " + msgCompFields.replyTo;
+      content += newLine;
+    }
+
     if (prefEditHeaders[extedit_CC])        content += extedit_CC + ":        " + msgCompFields.cc + newLine;
     if (prefEditHeaders[extedit_BCC])       content += extedit_BCC + ":       " + msgCompFields.bcc + newLine;
-    if (prefEditHeaders[extedit_REPLY_TO])  content += extedit_REPLY_TO + ":  " + msgCompFields.replyTo + newLine;
     if (prefEditHeaders[extedit_NEWSGROUP]) content += extedit_NEWSGROUP + ": " + msgCompFields.newsgroups + newLine;
     content += headersEnd;
   }
@@ -301,7 +316,7 @@ function initExtedit() {
   prefEditHeaders[extedit_SUBJECT]   = nsPreferences.getBoolPref('extedit.headers.edit.subject', true);
   prefEditHeaders[extedit_TO]        = nsPreferences.getBoolPref('extedit.headers.edit.to', true);
   prefEditHeaders[extedit_CC]        = nsPreferences.getBoolPref('extedit.headers.edit.cc', true);
-  prefEditHeaders[extedit_BCC]       = nsPreferences.getBoolPref('extedit.headers.edit.bcc', true); 
+  prefEditHeaders[extedit_BCC]       = nsPreferences.getBoolPref('extedit.headers.edit.bcc', true);
   prefEditHeaders[extedit_REPLY_TO]  = nsPreferences.getBoolPref('extedit.headers.edit.replyto', false);
   prefEditHeaders[extedit_NEWSGROUP] = nsPreferences.getBoolPref('extedit.headers.edit.newsgroup', false);
 
