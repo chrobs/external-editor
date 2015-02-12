@@ -1,7 +1,8 @@
-ExtEdit
+External-Editor
 =======
 
-ExtEdit is a Thunderbird/Icedove extension to allow editing an email in an
+External-Editor (a fork of https://github.com/bk2204/extedit[brian m. carlson's
+ExtEdit]) is a Thunderbird/Icedove extension to allow editing an email in an
 external editor, such as Vim or Emacs.  It is based on
 http://globs.org/articles.php?lng=en&pg=2[Alexandre Feblot's External Editor
 extension].
